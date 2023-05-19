@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webshop</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+
+<!-- ========== Shop Header ========== -->
+<div class="shop-header">
+    <div class="shop-titles">
+        <a class="shop-title" href="/">My Shop</a>
+        <a class="shop-title" href="/more-filters">More>></a>
+    </div>
+    <div class="underline"></div>
+</div>
+
+<!-- ========== Shop Buttons ========== -->
+<div class="shop-buttons">
+    <a class="btn" href="/showitems">show items</a>
+    <a class="btn" href="/only-available">only available</a>
+    <a class="btn" href="/cheapest-first">cheapest first</a>
+    <a class="btn" href="/contains-nike">contains nike</a>
+    <a class="btn" href="/average-stock">average stock</a>
+    <a class="btn" href="/most-expensive">most expensive available</a>
+</div>
+
+<div class="underline2"></div>
+
+<!-- ========== Search Bar ========== -->
+<div class="search-bar">
+    <form class="search-form" action="/search" method="post">
+    <div class="search-line">
+        <label for="search-input">Search for:</label>
+        <input
+                id="search-input"
+                type="text"
+                name="keyword"
+                placeholder="...something like nike"
+        />
+    </div>
+    <button class="btn btn-search" type="submit">Search</button>
+    </form>
+</div>
+
+<!-- ========== Table Bar ========== -->
+<div class="shop-table">
+    <table th:if="${pageType != null}">
+        <tr class="table-head">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>price</th>
+            <th>Quantity <br> of Stock</th>
+        </tr>
+        <tr th:if="${items.size() > 0}" th:each="item : ${items}">
+            <td class="item-name" th:text="${item.getName()}"></td>
+            <td class="item-type" th:text="${item.getType()}"></td>
+            <td class="item-description" th:text="${item.getDescription()}"></td>
+            <td class="item-price" th:text="|${item.getPrice()} Kč|"></td>
+            <td class="item-quantity" th:text="${item.getQuantityOfStock()}"></td>
+        </tr>
+    </table>
+    <h1 th:unless="${pageType != null}">Welcome Traveler!</h1>
+    <h1 th:if="${pageType == 'search' && #lists.isEmpty(items)}">No items found for the search keyword.</h1>
+</div>
+
+</body>
+</html>

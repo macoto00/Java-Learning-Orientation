@@ -1,0 +1,235 @@
+/*========== Import Fonts ==========*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+:root {
+    /*========== Colors ==========*/
+    --first-color: #7bd7ff;
+    --second-color: #ec2f00;
+    /*========== Font color ==========*/
+    --font-black: rgb(0, 0, 0);
+    --font-white: rgb(255, 255, 255);
+    /*========== Fonts ==========*/
+    --font-content: 'Lato', sans-serif;
+}
+
+/*========== General CSS ==========*/
+
+* {
+    font-family: var(--font-content);
+}
+
+body {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+.underline2 {
+    margin-top: 2rem;
+    border-top: 1px solid var(--first-color);
+}
+
+/*========== Shop Header ==========*/
+
+.shop-title,
+.underline {
+    color: var(--first-color);
+}
+
+.shop-title {
+    margin-bottom: 2px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.shop-titles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.underline {
+    border-top: 1px solid var(--first-color);
+}
+
+/*========== Shop Buttons ==========*/
+
+.shop-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop-buttons a {
+    text-decoration: none;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btn {
+    background-color: var(--second-color);
+    color: var(--font-white);
+    border-radius: 5px;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    height: 30px;
+    align-items: center;
+    border: none;
+}
+
+/*========== Shop Search Bar ==========*/
+
+.search-bar {
+    display: flex;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.search-line {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+    flex-basis: 90%;
+}
+
+.search-form {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 90%;
+}
+
+.search-form a {
+    text-decoration: none;
+    line-height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    display: block;
+    text-align: center;
+}
+
+.btn-search {
+    margin-left: 0.5rem;
+    flex-grow: 1;
+    flex-basis: 10%;
+    height: 55px;
+    margin-top: 21px;
+}
+
+.btn-search:hover {
+    cursor: pointer;
+}
+
+label {
+    color: var(--second-color);
+}
+
+.search-line input {
+    height: 50px;
+    color: grey;
+    font-size: larger;
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: var(--second-color);
+    padding-left: 10px;
+    flex-grow: 1;
+}
+
+/*========== Shop Table ==========*/
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+table tr {
+    height: 100px;
+}
+
+.table-head {
+    background-color: var(--first-color);
+    height: 100px;
+}
+
+.table-head th {
+    font-weight: 900;
+}
+
+.table-name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.table-price {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.table-quantity {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.item-price {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.item-quantity {
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+/*========== Set Breakpoint ==========*/
+
+@media (max-width: 1100px) {
+
+    .shop-header a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shop-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shop-buttons button {
+        width: fit-content;
+    }
+
+    .search-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-average {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-mostExpensive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
